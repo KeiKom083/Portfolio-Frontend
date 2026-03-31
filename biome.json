@@ -1,34 +1,213 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
   },
+
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "includes": [
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.json",
+      "**/*.jsonc",
+      "**/*.css"
+    ],
+    "experimentalScannerIgnores": [
+      "**/node_modules/**",
+      "**/.next/**",
+      "**/out/**",
+      "**/dist/**",
+      "**/build/**",
+      "**/coverage/**",
+      "**/.turbo/**",
+      "**/.vercel/**",
+      "**/*.d.ts",
+      "**/public/**",
+      "**/.env*"
+    ]
   },
+
   "formatter": {
     "enabled": true,
+    "formatWithErrors": false,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "lineEnding": "lf",
+    "attributePosition": "auto"
   },
+
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
+      "recommended": true,
+
+      "domains": {
+        "next": "recommended",
+        "react": "recommended"
+      },
+
+      "a11y": {
+        "recommended": true
+      },
+
+      "complexity": {
+        "recommended": true,
+        "noExcessiveCognitiveComplexity": "warn",
+        "useLiteralKeys": "error",
+        "useSimplifiedLogicExpression": "warn"
+      },
+
+      "correctness": {
+        "recommended": true,
+        "useExhaustiveDependencies": "warn",
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error"
+      },
+
+      "performance": {
+        "recommended": true,
+        "noAccumulatingSpread": "warn"
+      },
+
+      "security": {
+        "recommended": true,
+        "noDangerouslySetInnerHtml": "warn",
+        "noGlobalEval": "error"
+      },
+
+      "style": {
+        "recommended": true,
+        "noDefaultExport": "off",
+        "noInferrableTypes": "error",
+        "noParameterAssign": "warn",
+        "useConst": "error",
+        "useEnumInitializers": "error",
+        "useFilenamingConvention": {
+          "level": "warn",
+          "options": {
+            "requireAscii": true,
+            "filenameCases": ["kebab-case", "camelCase", "PascalCase"]
+          }
+        },
+        "useImportType": "error",
+        "useSelfClosingElements": "warn",
+        "useTemplate": "error"
+      },
+
+      "suspicious": {
+        "recommended": true,
+        "noConsole": "warn",
+        "noDoubleEquals": "error",
+        "noExplicitAny": "warn"
+      }
     }
   },
+
   "assist": {
+    "enabled": true,
     "actions": {
       "source": {
         "organizeImports": "on"
       }
     }
-  }
+  },
+
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all",
+      "arrowParentheses": "always",
+      "bracketSpacing": true,
+      "bracketSameLine": false
+    },
+    "globals": [],
+    "linter": {
+      "enabled": true
+    }
+  },
+
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf",
+      "trailingCommas": "none"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+
+  "overrides": [
+    {
+      "includes": [
+        "**/app/**/page.tsx",
+        "**/app/**/layout.tsx",
+        "**/app/**/loading.tsx",
+        "**/app/**/error.tsx",
+        "**/app/**/not-found.tsx",
+        "**/app/**/template.tsx",
+        "**/app/**/route.ts",
+        "**/middleware.ts",
+        "next.config.*"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
+        "**/__tests__/**"
+      ],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off",
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.stories.tsx", "**/*.stories.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
 }

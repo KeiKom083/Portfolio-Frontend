@@ -3,14 +3,14 @@ import { ENV } from "./constants/env";
 
 const config: CodegenConfig = {
   schema: ENV.GRAPHQL_ENDPOINT,
-  documents:["./**/*.tsx", "./**/*.ts", "!./gql/**/*"],
+  documents: ["./**/*.tsx", "./**/*.ts", "!./gql/**/*"],
   generates: {
     "./gql/": {
       preset: "client",
       presetConfig: {
         fragmentMasking: false,
       },
-      config:{
+      config: {
         strictScalars: true,
         scalars: {
           DateTime: "string",
@@ -19,7 +19,7 @@ const config: CodegenConfig = {
           JSON: "Record<string, unknown>",
         },
         useTypeImports: true,
-      }
+      },
     },
   },
   ignoreNoDocuments: true,

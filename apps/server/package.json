@@ -9,10 +9,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@fastify/cors": "^9.0.0",
+    "@hono/node-server": "^1.14.4",
     "@portfolio/api": "workspace:*",
     "@trpc/server": "^11.0.0",
-    "fastify": "^5.3.3"
+    "hono": "^4.7.11"
   },
   "devDependencies": {
     "@types/node": "^25",

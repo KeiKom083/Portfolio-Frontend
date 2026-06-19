@@ -6,7 +6,8 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "migrate": "docker exec -i portfolio-postgres psql -U postgres -d portfolio -f - < migrations/001_create_users.sql"
   },
   "dependencies": {
     "@hono/node-server": "^2.0.5",

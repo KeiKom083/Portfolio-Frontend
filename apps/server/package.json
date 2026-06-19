@@ -11,7 +11,7 @@
   "dependencies": {
     "@hono/node-server": "^2.0.5",
     "@portfolio/api": "workspace:*",
-    "@trpc/server": "^11.0.0",
+    "@trpc/server": "catalog:",
     "hono": "^4.7.11"
   },
   "devDependencies": {

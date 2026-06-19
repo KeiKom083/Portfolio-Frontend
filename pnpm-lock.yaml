@@ -4,6 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@trpc/client':
+      specifier: ^11.0.0
+      version: 11.18.0
+    '@trpc/server':
+      specifier: ^11.0.0
+      version: 11.18.0
+
 importers:
 
   .:
@@ -27,7 +36,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/api
       '@trpc/server':
-        specifier: ^11.0.0
+        specifier: 'catalog:'
         version: 11.18.0(typescript@6.0.3)
       hono:
         specifier: ^4.7.11
@@ -55,7 +64,7 @@ importers:
         specifier: ^5.100.11
         version: 5.101.0(react@19.2.7)
       '@trpc/client':
-        specifier: ^11.0.0
+        specifier: 'catalog:'
         version: 11.18.0(@trpc/server@11.18.0(typescript@6.0.3))(typescript@6.0.3)
       '@trpc/tanstack-react-query':
         specifier: ^11.18.0
@@ -92,7 +101,7 @@ importers:
   packages/api:
     dependencies:
       '@trpc/server':
-        specifier: ^11.0.0
+        specifier: 'catalog:'
         version: 11.18.0(typescript@6.0.3)
       superjson:
         specifier: ^2.2.6

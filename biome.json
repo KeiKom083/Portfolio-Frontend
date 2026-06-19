@@ -1,13 +1,12 @@
 {
   "$schema": "https://biomejs.dev/schemas/latest/schema.json",
-
+  "root": true,
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true,
-    "defaultBranch": "main"
+    "defaultBranch": "develop"
   },
-
   "files": {
     "ignoreUnknown": true,
     "includes": [
@@ -17,10 +16,13 @@
       "**/*.tsx",
       "**/*.json",
       "**/*.jsonc",
-      "**/*.css"
+      "**/*.css",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/.next",
+      "!**/.turbo"
     ]
   },
-
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -30,41 +32,34 @@
     "lineEnding": "lf",
     "attributePosition": "auto"
   },
-
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
-
       "a11y": {
         "recommended": true
       },
-
       "complexity": {
         "recommended": true,
         "noExcessiveCognitiveComplexity": "warn",
         "useLiteralKeys": "error",
         "useSimplifiedLogicExpression": "warn"
       },
-
       "correctness": {
         "recommended": true,
         "useExhaustiveDependencies": "warn",
         "noUnusedImports": "error",
         "noUnusedVariables": "error"
       },
-
       "performance": {
         "recommended": true,
         "noAccumulatingSpread": "warn"
       },
-
       "security": {
         "recommended": true,
         "noDangerouslySetInnerHtml": "warn",
         "noGlobalEval": "error"
       },
-
       "style": {
         "recommended": true,
         "noDefaultExport": "off",
@@ -76,14 +71,17 @@
           "level": "warn",
           "options": {
             "requireAscii": true,
-            "filenameCases": ["kebab-case", "camelCase", "PascalCase"]
+            "filenameCases": [
+              "kebab-case",
+              "camelCase",
+              "PascalCase"
+            ]
           }
         },
         "useImportType": "error",
         "useSelfClosingElements": "warn",
         "useTemplate": "error"
       },
-
       "suspicious": {
         "recommended": true,
         "noConsole": "warn",
@@ -92,7 +90,6 @@
       }
     }
   },
-
   "assist": {
     "enabled": true,
     "actions": {
@@ -101,7 +98,6 @@
       }
     }
   },
-
   "javascript": {
     "formatter": {
       "quoteStyle": "double",
@@ -117,7 +113,6 @@
       "enabled": true
     }
   },
-
   "json": {
     "formatter": {
       "enabled": true,
@@ -130,7 +125,6 @@
       "enabled": true
     }
   },
-
   "css": {
     "formatter": {
       "enabled": true,
@@ -142,7 +136,6 @@
       "enabled": true
     }
   },
-
   "overrides": [
     {
       "includes": [
@@ -182,11 +175,80 @@
       }
     },
     {
-      "includes": ["**/*.stories.tsx", "**/*.stories.ts"],
+      "includes": [
+        "**/*.stories.tsx",
+        "**/*.stories.ts"
+      ],
       "linter": {
         "rules": {
           "style": {
             "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "apps/web/**"
+      ],
+      "linter": {
+        "domains": {
+          "next": "recommended",
+          "react": "recommended"
+        }
+      }
+    },
+    {
+      "includes": [
+        "**/domain/**"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "@prisma/client": "domain層はORMを参照しない"
+                },
+                "patterns": [
+                  {
+                    "group": [
+                      "**/infrastructure/**",
+                      "**/presentation/**",
+                      "**/application/**"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "**/application/**"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "@prisma/client": "application層もORM直参照はダメだよ"
+                },
+                "patterns": [
+                  {
+                    "group": [
+                      "**/infrastructure/**",
+                      "**/presentation/**"
+                    ]
+                  }
+                ]
+              }
+            }
           }
         }
       }

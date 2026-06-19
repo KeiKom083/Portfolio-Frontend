@@ -11,9 +11,9 @@
   "dependencies": {
     "@trpc/server": "catalog:",
     "superjson": "^2.2.6",
-    "zod": "^4.4.3"
+    "zod": "catalog:"
   },
   "devDependencies": {
-    "typescript": "^6.0.3"
+    "typescript": "catalog:"
   }
 }

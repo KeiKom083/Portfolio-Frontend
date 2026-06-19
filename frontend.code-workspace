@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "apps/web",
+      "name": "Web (Next.js)"
+    },
+    {
+      "path": "apps/api",
+      "name": "API (型参照用)"
+    }
+  ],
+  "settings": {
+    "js/ts.tsdk.path": "apps/web/node_modules/typescript/lib",
+    "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+    "editor.formatOnSave": true,
+  },
+  "extensions": {}
+}

@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "apps/server",
+      "name": "API (Hono/tRPC)"
+    }
+  ],
+  "settings": {
+    "js/ts.tsdk.path": "apps/server/node_modules/typescript/lib",
+    "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+    "editor.formatOnSave": true,
+  },
+  "extensions": {}
+}

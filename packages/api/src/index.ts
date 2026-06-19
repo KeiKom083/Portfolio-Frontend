@@ -1,3 +1,4 @@
-export type { AppRouter } from "./router";
-export { appRouter } from "./router";
-export { publicProcedure, router } from "./trpc";
+export type { AppRouter } from "./root";
+export { appRouter } from "./root";
+export * from "./schemas/user.schema";
+export type { AppContext, AuthUser, UseCase, UseCases } from "./trpc/context";

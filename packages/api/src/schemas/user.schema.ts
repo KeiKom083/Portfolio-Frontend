@@ -1,4 +1,4 @@
-import {z} from "zod";
+import { z } from "zod";
 
 export const createUserSchema = z.object({
   name: z.string().min(1, { message: "名前は必須項目です" }),
@@ -14,4 +14,10 @@ export const userSchema = z.object({
   email: z.email(),
 });
 
-export type CreateUserOutput = z.infer<typeof userSchema>;
+export type User = z.infer<typeof userSchema>;
+
+export const getUserSchema = z.object({
+  id: z.number(),
+});
+
+export type GetUserInput = z.infer<typeof getUserSchema>;

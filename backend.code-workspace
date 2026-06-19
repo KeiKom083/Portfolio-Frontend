@@ -3,6 +3,10 @@
     {
       "path": "apps/server",
       "name": "API (Hono/tRPC)"
+    },
+    {
+      "path": "packages/api",
+      "name": "API(共通型、ルーター）"
     }
   ],
   "settings": {

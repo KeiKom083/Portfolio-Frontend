@@ -1,6 +1,14 @@
 packages:
   - "apps/*"
   - "packages/*"
+allowBuilds:
+  esbuild: true
+  sharp: true
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+catalog:
+  "@trpc/server": ^11.0.0
+  "@trpc/client": ^11.0.0
+  "typescript": ^6.0.3
+  "zod": "^4.4.3"

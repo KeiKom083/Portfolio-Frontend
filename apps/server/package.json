@@ -6,17 +6,18 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "migrate": "docker exec -i portfolio-postgres psql -U postgres -d portfolio -f - < src/migrations/001_create_users.sql"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.4",
+    "@hono/node-server": "^2.0.5",
     "@portfolio/api": "workspace:*",
-    "@trpc/server": "^11.0.0",
+    "@trpc/server": "catalog:",
     "hono": "^4.7.11"
   },
   "devDependencies": {
     "@types/node": "^25",
     "tsx": "^4.19.4",
-    "typescript": "^6.0.3"
+    "typescript": "catalog:"
   }
 }

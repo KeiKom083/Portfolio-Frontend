@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.4",
+    "@hono/node-server": "^2.0.5",
     "@portfolio/api": "workspace:*",
     "@trpc/server": "^11.0.0",
     "hono": "^4.7.11"

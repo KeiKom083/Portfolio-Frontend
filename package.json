@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "packageManager": "pnpm@8.6.1",
+  "packageManager": "pnpm@11.8.0",
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
@@ -11,8 +11,11 @@
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.15",
+    "@biomejs/biome": "2.5.0",
     "turbo": "^2.9.18",
     "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
